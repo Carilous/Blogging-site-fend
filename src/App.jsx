@@ -3,11 +3,13 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import { Routes, BrowserRouter } from "react-router-dom";
 import Home from './pages/Home';
-import './app.css'
+
+import './App.css';
+
 import Login from './pages/Login';
 
 import Signup from './pages/Signup';
-import PostDetails from './pages/PostDetail';
+
 import CreatePost from './pages/CreatePost';
 import EditPost from './pages/EditPost';
 import UsersDetail from './pages/UsersDetail';
