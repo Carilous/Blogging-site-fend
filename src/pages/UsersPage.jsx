@@ -8,7 +8,7 @@ const UsersPage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await API.get("auth/users");
+        const response = await API.get("/auth/users");
         setUsers(response.data.users);
       } catch (error) {
         console.error("Error fetching users:", error);

@@ -21,7 +21,7 @@ const EditPost = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await axios.get(`http://localhost:4000/posts/${id}`);
+        const res = await axios.get(`/posts/${id}`);
         const post = res.data.post;
         setTitle(post.title || "");
         setSubtitle(post.subtitle || "");
@@ -55,7 +55,7 @@ const EditPost = () => {
       formData.append("content", content);
       if (image) formData.append("file", image);
 
-      await axios.put(`http://localhost:4000/posts/edit/${id}`, formData, {
+      await axios.put(`/posts/edit/${id}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

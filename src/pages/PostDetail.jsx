@@ -16,7 +16,7 @@ const PostDetails = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await API.get(`http://localhost:4000/posts/${id}`);
+        const res = await API.get(`/posts/${id}`);
         setPost(res.data.post);
         setComments(res.data.comments || []);
       } catch (err) {
@@ -33,7 +33,7 @@ const PostDetails = () => {
   try {
     const token = localStorage.getItem("token");
     const res = await API.post(
-      `http://localhost:4000/posts/${id}/like`,
+      `/posts/${id}/like`,
       {},
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -49,7 +49,7 @@ const PostDetails = () => {
     if (!window.confirm("Are you sure you want to delete this post?")) return;
     try {
       const token = localStorage.getItem("token");
-      await API.delete(`http://localhost:4000/posts/${id}`, {
+      await API.delete(`/posts/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert("Post deleted!");
@@ -74,7 +74,7 @@ const PostDetails = () => {
       
       
       const res = await API.post(
-        `http://localhost:4000/posts/${id}/comment`,
+        `/posts/${id}/comment`,
         { text: newComment },
         { headers: { Authorization: `Bearer ${token}` } }
 
@@ -92,7 +92,7 @@ const handleDeleteComment = async (commentId) => {
   if (!window.confirm("Delete this comment?")) return;
   try {
     const token = localStorage.getItem("token");
-    await API.delete(`http://localhost:4000/posts/${id}/comment/${commentId}`, {
+    await API.delete(`/posts/${id}/comment/${commentId}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     setComments((prev) => prev.filter((c) => c._id !== commentId));
