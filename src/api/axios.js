@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const API = axios.create({
-  baseURL: " https://blogging-site-bcd-3.onrender.com",
+    baseURL: import.meta.env.VITE_API_URL,
 });
 
 
