@@ -1,5 +1,3 @@
-import React, { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
 import './index.css';
 import { Routes, BrowserRouter } from "react-router-dom";
 import Home from './pages/Home';

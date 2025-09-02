@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react'
-import PostCard from '../components/PostCard'
 import arrow from '../assets/arrow.png';
 import { Link } from 'react-router-dom'
 const Home =() =>{

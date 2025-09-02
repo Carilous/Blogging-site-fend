@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import MdEditor from "react-markdown-editor-lite";
 import MarkdownIt from "markdown-it";
 import "react-markdown-editor-lite/lib/index.css";
-import axios from "axios";
+
+import API from "../api/axios";
 
 const mdParser = new MarkdownIt();
 
@@ -21,7 +22,7 @@ const EditPost = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await axios.get(`/posts/${id}`);
+        const res = await API.get(`/posts/${id}`);
         const post = res.data.post;
         setTitle(post.title || "");
         setSubtitle(post.subtitle || "");
@@ -55,7 +56,7 @@ const EditPost = () => {
       formData.append("content", content);
       if (image) formData.append("file", image);
 
-      await axios.put(`/posts/edit/${id}`, formData, {
+      await API.put(`/posts/edit/${id}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../api/axios";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ const Signup = () => {
       data.append("password", formData.password);
       data.append("profilePicture", profilePicture); 
 
-      const res = await axios.post("/auth/signup", data, {
+      const res = await API.post("/auth/signup", data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

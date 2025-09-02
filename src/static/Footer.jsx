@@ -1,4 +1,3 @@
-import React from 'react';
 import global from '../assets/global.png';
 import sustain from '../assets/sustain.png';
 import circular from '../assets/circular.png';
